@@ -13,7 +13,8 @@ let prodEl = document.querySelector(".prod-container")
 let btnEl = document.getElementById("clothes-btn")
 let allEl = document.getElementById("all-btn")
 let foodEl = document.getElementById("food-btn")
-    let filteredProducts = ""
+let techEl = document.getElementById("tech-btn")
+    
 
 
 function renderProducts(items) {
@@ -37,7 +38,7 @@ renderProducts(products)
 
 btnEl.addEventListener("click", function () {
 
-    filteredProducts = products.filter(function (product) {
+    let filteredProducts = products.filter(function (product) {
         return product.category === "clothes"
     })
 
@@ -49,8 +50,17 @@ allEl.addEventListener("click", function () {
 })
 
 foodEl.addEventListener("click", function(){
-    filteredProducts = products.filter(function (product) {
+    let filteredProducts = products.filter(function (product) {
         return product.category === "food"
     })
     renderProducts(filteredProducts)
 })
+
+
+techEl.addEventListener("click", function(){
+    let filteredProducts = products.filter(function (product) {
+        return product.category === "tech"
+    })
+    renderProducts(filteredProducts)
+})
+

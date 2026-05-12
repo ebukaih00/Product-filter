@@ -5,7 +5,13 @@
 }
 
 .filter-btn:hover {
-    background-color: lightblue;
+    background-color: lightcyan;
+}
+
+.filter-btn.selected {
+  background: black;
+  color: white;
+  border-color: black;
 }
 
 .filter-btn {
