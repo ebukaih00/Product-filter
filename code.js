@@ -12,6 +12,9 @@ let products = [
 let prodEl = document.querySelector(".prod-container")
 let btnEl = document.getElementById("clothes-btn")
 let allEl = document.getElementById("all-btn")
+let foodEl = document.getElementById("food-btn")
+    let filteredProducts = ""
+
 
 function renderProducts(items) {
     prodEl.innerHTML = ""
@@ -22,20 +25,19 @@ function renderProducts(items) {
     
 
 <div class = "products-item">
-<p> ${products[i].name}</p> 
-<p id= "prod-${i}"> ${products[i].price}</p>
+<p> ${items[i].name}</p> 
+<p id= "prod-${i}"> ${items[i].price}</p>
 
 </div>
 `
     }
 }
 
-
 renderProducts(products)
 
 btnEl.addEventListener("click", function () {
 
-    let filteredProducts = products.filter(function (product) {
+    filteredProducts = products.filter(function (product) {
         return product.category === "clothes"
     })
 
@@ -44,4 +46,11 @@ btnEl.addEventListener("click", function () {
 
 allEl.addEventListener("click", function () {
     renderProducts(products)
+})
+
+foodEl.addEventListener("click", function(){
+    filteredProducts = products.filter(function (product) {
+        return product.category === "food"
+    })
+    renderProducts(filteredProducts)
 })
