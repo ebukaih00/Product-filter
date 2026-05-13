@@ -36,31 +36,24 @@ function renderProducts(items) {
 
 renderProducts(products)
 
+function filterProducts(category) {
+
+    let filteredProducts = products.filter(product => {
+        return product.category === category
+    })
+
+    renderProducts(filteredProducts)
+}
+
+
 btnEl.addEventListener("click", function () {
-
-    let filteredProducts = products.filter(function (product) {
-        return product.category === "clothes"
-    })
-
-    renderProducts(filteredProducts)
+    filterProducts("clothes")
 })
 
-allEl.addEventListener("click", function () {
-    renderProducts(products)
+foodEl.addEventListener("click", function () {
+    filterProducts("food")
 })
 
-foodEl.addEventListener("click", function(){
-    let filteredProducts = products.filter(function (product) {
-        return product.category === "food"
-    })
-    renderProducts(filteredProducts)
+techEl.addEventListener("click", function () {
+    filterProducts("tech")
 })
-
-
-techEl.addEventListener("click", function(){
-    let filteredProducts = products.filter(function (product) {
-        return product.category === "tech"
-    })
-    renderProducts(filteredProducts)
-})
-
